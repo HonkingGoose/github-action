@@ -10,7 +10,7 @@
     },
     {
       "description": "Update references in markdown files weekly",
-      "matchPaths": ["**/*.md"],
+      "matchFileNames": ["**/*.md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
       "minimumReleaseAge": null,
@@ -33,12 +33,13 @@
     },
     {
       "description": "use ci semanctic type for some deps",
-      "matchPaths": [".github/workflows/**"],
+      "matchFileNames": [".github/workflows/**"],
       "semanticCommitType": "ci"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["^README\\.md$"],
       "matchStrings": [
         "uses: renovatebot/github-action@(?<currentValue>[^\\s]+)"
